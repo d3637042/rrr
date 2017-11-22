@@ -1,3 +1,8 @@
+NOTE:
+THIS IS A MODIFIED VERSION OF RRR
+http://github.com/ylatif/g2o
+
+
 Introduction
 ------------
 UPDATE (17/02/2014) : Complete code rewrite to allow extending to various SLAM back-ends <br>
