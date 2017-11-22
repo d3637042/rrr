@@ -39,7 +39,7 @@ Running the examples
 
 The example folder contains two executables. 
 
-  ./build/examples/RRR\_3D\_from\_disk\_g2o fixed\_data\_error.g2o 70
+  ./build/examples/RRR\_3D\_from\_disk\_g2o data\_error.g2o 70
 
 The code has been restructured into more organized blocks. The main class of interest is include/RRR.hpp.
 Further information on how to use this in your on project can be found in doc/
