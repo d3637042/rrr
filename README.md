@@ -2,74 +2,41 @@ NOTE:
 THIS IS A MODIFIED VERSION OF RRR
 http://github.com/ylatif/g2o
 
+suitesparse:
 
-Introduction
-------------
-UPDATE (17/02/2014) : Complete code rewrite to allow extending to various SLAM back-ends <br>
-UPDATE : Added timestamps in datasets/B25b/timestamps because of different number of poses in Odometry and Ground Truth g2o files
+  - sudo apt-get install libsuitesparse-dev
 
-This project contains the accompanying code for our RSS 2012 paper Robust Loop Closing over time
+cmake 3:
 
-Requirements
-------------
+  - sudo apt-get install software-properties-common
+  - sudo add-apt-repository ppa:george-edison55/cmake-3.x
+  - sudo apt-get update 
 
-- g2o: http://www.openslam.org/g2o (+ Eigen + libsuitesparse-dev )
-- boost math libraries
+g2o:
 
-Installation
--------------
+  - git clone https://github.com/RainerKuemmerle/g2o
+  - cd g2o
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make
+  - sudo make install
 
-- g2o: 
+build
 
-  Clone from openslam.org or http://github.com/ylatif/g2o <br>
-  and install following the instructions provided there in. 
-  
-- install boost maths ( On ubuntu : sudo apt-get install libboost-math1.42-dev)
-
-- in the directory rrr/<br>
-  mkdir build <br>
-  cd build <br>
-  cmake .. <br>
-  make <br>
+  - cd rrr
+  - mkdir build <br>
+  - cd build <br>
+  - cmake .. <br>
+  - make <br>
  
   This will generate examples in the folder rrr/build/examples/
   
 Running the examples
---------------------
-
-The example folder contains two executables. 
 
   ./build/examples/RRR\_3D\_from\_disk\_g2o data\_error.g2o 70
 
-The code has been restructured into more organized blocks. The main class of interest is include/RRR.hpp.
-Further information on how to use this in your on project can be found in doc/
+After running RRR, run g2o
+  - ~/g2o/bin/g2o -o out.g2o data\_error.g2o
 
-Kindly drop me an email at ylatif AT unizar DOT es in case something is not working.
-
-Citing this work
-----------------
- 
-If you use this work, please cite our corresponding paper : 
-
-
-@article{Latif-IJRR-13,<br>
-author = {Latif, Yasir and Cadena, César and Neira, José},<br> 
-title = {Robust loop closing over time for pose graph SLAM},<br>
-volume = {32}, <br>
-number = {14}, <br>
-pages = {1611-1626},<br> 
-year = {2013}, <br>
-doi = {10.1177/0278364913498910},<br> 
-URL = {http://ijr.sagepub.com/content/32/14/1611.abstract},<br> 
-journal = {The International Journal of Robotics Research} <br>
-}
-
-
-@INPROCEEDINGS{Latif-RSS-12,<br>
-  author = {Y. Latif and C. Cadena and J. Neira},<br>
-  title = {{Robust Loop Closing Over Time}},<br>
-  booktitle = {Proceedings of Robotics: Science and Systems},<br>
-  year = {2012},<br>
-  address = {Sydney, Australia},<br>
-  month = {July}<br>
-}
+out.g2o is the final file.
